@@ -1,24 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import Massanger from './components/Massanger';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import UserProvider from './context/UserProvider';
 
 function App() {
+  const clientId= '668673245264-ccgcpg9usfj3u4vohiue4l2j85edg5kb.apps.googleusercontent.com';
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GoogleOAuthProvider clientId={clientId}>
+      <UserProvider>
+      <Massanger/>
+      </UserProvider>
+     
+    </GoogleOAuthProvider>
   );
 }
 
