@@ -1,9 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Box, Dialog, styled } from '@mui/material'
 import { UserAccount } from '../../context/UserProvider'
 import ChatIcon from '@mui/icons-material/Chat';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import MenuSidebar from './MenuSidebar';
+import Showdower from '../../dawer/Showdower';
 
 
 const Component = styled(Box)`
@@ -36,16 +37,21 @@ const Image = styled('img') ({
 
 function MenuHeader() {
     const {account}= useContext(UserAccount);
+    const [openDrawer, setOpenDrawer] = useState(false);
+    const toogleDower=()=>{
+        setOpenDrawer(true)
+    }
     return (
         <>
         <Component>
-           <Image src={account.picture} alt="Picture"></Image>
+           <Image onClick={()=>toogleDower()} src={account.picture} alt="Picture"></Image>
            <Wrapper>
                     <ChatIcon></ChatIcon>
                     <MenuSidebar></MenuSidebar>
                     
                 </Wrapper>
         </Component>
+        <Showdower open={openDrawer} setOpen={setOpenDrawer} />
         </>
     )
 }
