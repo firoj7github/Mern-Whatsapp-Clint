@@ -5,10 +5,13 @@ export const UserAccount = createContext(null);
 
 const UserProvider=({ children })=> {
     const [account, setAccount]= useState();
+    const [persion, setPersion]= useState({});
     return (
         <UserAccount.Provider value={{
             account,
-            setAccount
+            setAccount,
+            persion,
+            setPersion
         }}>
          {children}
         </UserAccount.Provider>

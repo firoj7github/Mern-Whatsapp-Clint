@@ -35,7 +35,7 @@ const InputField = styled(InputBase) `
 `;
 
 
-function SearchMenu() {
+function SearchMenu({setText}) {
     return (
         <Component>
             <Wrapper>
@@ -45,7 +45,7 @@ function SearchMenu() {
                 <InputField
                     placeholder="Search or start new chat"
                     inputProps={{ 'aria-label': 'search' }}
-                    
+                    onChange={(e)=>setText(e.target.value)}
                 />
             </Wrapper>
         </Component>

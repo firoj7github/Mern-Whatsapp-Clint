@@ -4,6 +4,7 @@ import { qrCodeImage } from '../../layouts/data';
 import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from "jwt-decode";
 import { UserAccount } from '../../context/UserProvider';
+import { addUser } from '../../service/api';
 
 
 
@@ -55,6 +56,8 @@ function LoginDailog() {
         const decoded = jwt_decode(res.credential);
         console.log(decoded);
         setAccount(decoded);
+        await addUser(decoded);
+
     };
 
     const onLoginFailure = (res) => {
@@ -71,7 +74,7 @@ function LoginDailog() {
             PaperProps={{ sx: dialogStyle }}>
             <Component>
                 <Container>
-                    <Title>Use WhatsApp 2.0 on your computer:</Title>
+                    <Title>Use WhatsApp 3.0 on your computer:</Title>
                     <StyledList>
                         <ListItem>1. Open WhatsApp on your phone</ListItem>
                         <ListItem>2. Tap Menu Settings and select WhatsApp Web</ListItem>
