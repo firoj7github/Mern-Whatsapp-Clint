@@ -52,6 +52,9 @@ const dialogStyle = {
     overflow: 'hidden'
 }
 function LoginDailog() {
+
+
+    const clientId= '668673245264-ccgcpg9usfj3u4vohiue4l2j85edg5kb.apps.googleusercontent.com';
     const onLoginSuccess = async (res) => {
         const decoded = jwt_decode(res.credential);
         console.log(decoded);
@@ -86,6 +89,7 @@ function LoginDailog() {
                     <Box style={{position: 'absolute', top: '50%', transform: 'translateX(25%) translateY(-25%)'}}>
                         
                             <GoogleLogin
+                               clientId={clientId}
                                 buttonText=""
                                 onSuccess={onLoginSuccess}
                                 onError={onLoginFailure}
