@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Menu, MenuItem, styled } from '@mui/material';
+import Showdower from '../../dawer/Showdower';
 
 
 const MenuOption = styled(MenuItem)`
@@ -10,6 +11,10 @@ const MenuOption = styled(MenuItem)`
 `;
 
 function MenuSidebar() {
+    // const [openDrawer, setOpenDrawer] = useState(false);
+    // const toogleDower=()=>{
+    //     setOpenDrawer(true)
+    // }
     const [open, setOpen] = useState(null);
     const [openDrawer, setOpenDrawer] = useState(false);
     const handleClose = () => {
@@ -18,6 +23,10 @@ function MenuSidebar() {
     const handleClick = (event) => {
         setOpen(event.currentTarget);
     };
+    const toggleDrawer = () => {
+        setOpenDrawer(true);
+    }
+
 
     return (
         <>
@@ -37,11 +46,11 @@ function MenuSidebar() {
                     horizontal: 'right',
                 }}
             >
-                <MenuOption >Profile</MenuOption>
-                <MenuOption >My Account</MenuOption>
-                <MenuOption >Logout</MenuOption>
+                <MenuOption onClick={() => { handleClose(); toggleDrawer()}}>Profile</MenuOption>
+                
                
             </Menu>
+            <Showdower open={openDrawer} setOpen={setOpenDrawer} />
 
         </>
         

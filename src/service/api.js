@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const url = 'http://localhost:5000';
+const url = 'https://mern-whatsapp-server.vercel.app';
 
 export const addUser = async (data) => {
     try {
